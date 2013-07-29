@@ -1,6 +1,7 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
+require 'devise'
 
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
@@ -58,5 +59,8 @@ module CommunityFlashcards
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+    
+    # Force app not to access DB or load models when precompiling assets for heroku
+    config.assets.initialize_on_precompile = false
   end
 end
